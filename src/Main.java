@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        //prosit8
         SocieteArrayList societe = new SocieteArrayList();
 
         // Création des employés
@@ -41,5 +42,36 @@ public class Main {
         for (Employe e : infoDept) {
             System.out.println(e);
         }
+
+        //prosit 9
+        //test
+        DepartementHashSet dep =new DepartementHashSet();
+
+        Depatement d1=new Depatement(1,"info",8);
+        Depatement d2=new Depatement(2,"RH",15);
+        Depatement d3=new Depatement(3,"Finance",10);
+        Depatement d4=new Depatement(4,"comptabilité",4);
+        dep.ajouterDepartement(d1);
+        dep.ajouterDepartement(d2);
+        dep.ajouterDepartement(d3);
+        dep.ajouterDepartement(d4);
+
+        System.out.println("Ajout:liste des deoartement");
+        dep.afficherDepartements();
+
+        System.out.println("recherche par nom departement 'info' :"+dep.rechercherDepartement("info"));
+        System.out.println("recherche :"+dep.rechercherDepartement(d3.getNomDepartement()));
+
+        System.out.println("trier par ID");
+        dep.trierDepartementsParId();
+
+        System.out.println("trier par nom et nombre employes");
+        dep.trierDepartementsParNomEtNombreEmployes();
+
+        System.out.println("supppression");
+        dep.supprimerDepartement(d4);
+
     }
+
+
 }
