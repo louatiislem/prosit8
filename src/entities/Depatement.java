@@ -55,4 +55,9 @@ public class Depatement {
                 ", nombreEmployes=" + nombreEmployes +
                 '}';
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nomDepartement, nombreEmployes);
+    }
 }

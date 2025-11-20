@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Objects;
+
 public class Employe implements Comparable<Employe>{
     private int id;
     private String nom;
@@ -47,6 +49,17 @@ public class Employe implements Comparable<Employe>{
     @Override
     public int compareTo(Employe e) {
         return Integer.compare(this.id, e.id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Employe employe)) return false;
+        return id == employe.id && grade == employe.grade && Objects.equals(nom, employe.nom) && Objects.equals(prenom, employe.prenom) && Objects.equals(nomDepartement, employe.nomDepartement);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nom, prenom, nomDepartement, grade);
     }
 }
 

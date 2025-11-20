@@ -1,6 +1,7 @@
 
 import entities.*;
 import java.util.List;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -70,6 +71,59 @@ public class Main {
 
         System.out.println("supppression");
         dep.supprimerDepartement(d4);
+
+
+        //prosit 10 Map
+        //3 test
+            AffectationHashMap hashmap = new AffectationHashMap();
+
+            Employe e1m = new Employe(1, "Ali", "Trabelsi", "IT", 3);
+            Employe e2m = new Employe(2, "Sarra", "Ben Ali", "RH", 2);
+            Employe e3m = new Employe(3, "Moez", "Gharbi", "Finance", 4);
+
+            Depatement d1m = new Depatement(10, "IT", 30);
+            Depatement d2m= new Depatement(20, "RH", 20);
+            Depatement d3m = new Depatement(30, "Finance", 15);
+
+            // Ajout
+            hashmap.ajouterEmployeDepartement(e1m, d1m);
+            hashmap.ajouterEmployeDepartement(e2m, d2m);
+            hashmap.ajouterEmployeDepartement(e3m, d3m);
+            //affichage
+            System.out.println("Affichage des affectations ");
+            hashmap.afficherEmployesEtDepartement();
+
+            System.out.println("Test double affectation");
+            hashmap.ajouterEmployeDepartement(e1m, d3m);
+
+            //suupression employe
+        hashmap.supprimerEmploye(e2m);
+
+        System.out.println("Après suppression");
+        hashmap.afficherEmployesEtDepartement();
+        //supprimer employe et departement
+        hashmap.supprimerEmployeEtDepartement(e1m,d1m);
+
+        //afficher employes
+        hashmap.afficherEmployes();
+
+        //afficher depatements
+        hashmap.afficherDepartements();
+        //recherche employes
+        hashmap.rechercherEmploye(e3m);
+        hashmap.rechercherEmploye(e1m);
+
+        //recherche departement
+        System.out.println("rech"+hashmap.rechercherDepartement(d1m));
+        System.out.println("Avant tri :");
+        hashmap.afficherEmployesEtDepartement();
+
+        System.out.println("\nAprès tri par ID :");
+        TreeMap<Employe, Depatement> tri = hashmap.trierMap();
+        for(Employe e : tri.keySet()) {
+            System.out.println(e + " -> " + tri.get(e));
+        }
+
 
     }
 
